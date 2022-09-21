@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var searchText = ""
     //maintaining an array of resorts by decoding the existing json file from app bundle.
     let resorts: [Resort] = Resort.allResorts
     
@@ -15,7 +16,7 @@ struct ContentView: View {
         NavigationView {
             
             //primaryView (by default visible on smaller screen devices).
-            List(resorts) { resort in
+            List(filteredResorts) { resort in
                 NavigationLink {
                     ResortView(resort: resort)
                 } label: {
@@ -38,10 +39,19 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Resorts")
+            .searchable(text: $searchText, prompt: "Search for a resort")
             
             
             //secondaryView (by default visible on large screen devices).
             WelcomeView()
+        }
+    }
+    
+    var filteredResorts: [Resort] {
+        if searchText.isEmpty {
+            return resorts
+        } else {
+            return resorts.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
 }
@@ -49,6 +59,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewInterfaceOrientation(.portrait)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

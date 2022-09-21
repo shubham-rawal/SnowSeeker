@@ -17,7 +17,6 @@ struct SkiDetailsView: View {
                     .font(.caption.bold())
                 Text("\(resort.elevation)m")
                     .font(.title3)
-                
             }
             
             VStack {
