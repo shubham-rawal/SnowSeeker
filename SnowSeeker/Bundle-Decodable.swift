@@ -25,9 +25,6 @@ extension Bundle {
         
         return loaded
     }
-    
-    static let allResorts: [Resort] = Bundle.main.decode("resorts.json")
-    static let example = allResorts[0]
 }
 
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     //maintaining an array of resorts by decoding the existing json file from app bundle.
-    let resorts: [Resort] = Bundle.main.decode("resorts.json")
+    let resorts: [Resort] = Resort.allResorts
     
     var body: some View{
         NavigationView {
@@ -17,7 +17,7 @@ struct ContentView: View {
             //primaryView (by default visible on smaller screen devices).
             List(resorts) { resort in
                 NavigationLink {
-                    Text(resort.name)
+                    ResortView(resort: resort)
                 } label: {
                     Image(resort.country)
                         .resizable()
@@ -49,6 +49,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewInterfaceOrientation(.portraitUpsideDown)
+            .previewInterfaceOrientation(.portrait)
     }
 }
