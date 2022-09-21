@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "winter-snowman-landscape-cute-house-snowy-mountain-valley-cartoon-background-with-snow-drifts-children-ice-sculpture-cold-season-view-new-year-greeting-card-vector-outdoor-illustration_176516-2052.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
